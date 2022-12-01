@@ -32,16 +32,11 @@ import VFacebookLogin from 'vue-facebook-login-component'
       this.scope = scope
     },
     ceklogin(data){
-      if (data.status =='connected') {
-        this.handleSdkInit();
-      } else {
-        
-        this.handleSdkInit();
-      }
+      console.log(data,"login");
       
     },
-    cekLogout(data){
-     
+    cekLogout(e){
+     console.log(e,"eeee");
     }
   },
   }
