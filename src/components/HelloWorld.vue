@@ -23,6 +23,8 @@ import VFacebookLogin from 'vue-facebook-login-component'
     }),
   methods: {
     handleSdkInit({ FB, scope }) {
+      console.log(FB,"FB");
+      console.log(scope,"SCOPE");
       this.FB = FB
       this.scope = scope
     },
