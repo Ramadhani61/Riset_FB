@@ -32,6 +32,7 @@ import VFacebookLogin from 'vue-facebook-login-component'
       this.scope = scope
     },
     ceklogin(data){
+      console.log(data,"dataslogin");
       console.log(this.scope,"login");
       
     },
