@@ -1,7 +1,7 @@
 <template>
   <v-container>
       <!-- <v-facebook-login app-id="687646526313011"></v-facebook-login> -->
-      <v-facebook-login v-model="model" @sdk-init="handleSdkInit" app-id="687646526313011" @login="ceklogin" @logout="cekLogout"/>
+      <v-facebook-login v-model="model" @sdk-init="handleSdkInit" app-id="687646526313011" @login="ceklogin" @logout="cekLogout" @click=""/>
       <button v-if="scope.logout && model.connected" @click="scope.logout">
         Logout
       </button>
@@ -22,7 +22,7 @@ import VFacebookLogin from 'vue-facebook-login-component'
       scope: {},
     }),
     mounted(){
-     this.ceklogin();
+    
     },
   methods: {
     handleSdkInit({ FB, scope }) {
@@ -32,7 +32,7 @@ import VFacebookLogin from 'vue-facebook-login-component'
       this.scope = scope
     },
     ceklogin(data){
-      console.log(data,"login");
+      console.log(this.scope,"login");
       
     },
     cekLogout(e){
