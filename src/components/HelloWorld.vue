@@ -21,6 +21,9 @@ import VFacebookLogin from 'vue-facebook-login-component'
       model: {},
       scope: {},
     }),
+    mounted(){
+      this.ceklogin();
+    },
   methods: {
     handleSdkInit({ FB, scope }) {
       console.log(FB,"FB");
@@ -29,6 +32,12 @@ import VFacebookLogin from 'vue-facebook-login-component'
       this.scope = scope
     },
     ceklogin(data){
+      if (data.status =='connected') {
+        alert("if connect")
+      } else {
+        
+        alert("belum connect")
+      }
       console.log(data,"datalogin");
     },
     cekLogout(data){
