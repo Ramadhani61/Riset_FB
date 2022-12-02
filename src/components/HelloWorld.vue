@@ -31,14 +31,13 @@ import facebookLogin from 'facebook-login-vuejs';
     },
   methods: {
     handleSdkInit({ FB, scope }) {
-      console.log(FB,"FB");
-      console.log(scope,"SCOPE");
+     
       this.FB = FB
       this.scope = scope
     },
     ceklogin(data){
       console.log(data,"dataslogin");
-      console.log(this.scope,"login");
+   
       
     },
     cekLogout(e){
