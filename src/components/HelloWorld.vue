@@ -43,10 +43,6 @@ import facebookLogin from 'facebook-login-vuejs';
     cekLogout(e){
      console.log(e,"eeee");
     },
-    Cek(prm){
-      console.log(prm,"void");
-
-    }
   },
   }
 </script>
