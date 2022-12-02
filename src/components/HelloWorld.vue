@@ -6,7 +6,7 @@
         Logout
       </button> -->
       <facebook-login class="button" appId="687646526313011" @login="ceklogin" @logout="cekLogout"
-        @get-initial-status="ceklogin">
+        @get-initial-status="Inisial" @sdkLoaded="handleSdkInit">
       </facebook-login>
   </v-container>
 </template>
@@ -30,15 +30,15 @@ import facebookLogin from 'facebook-login-vuejs';
     
     },
   methods: {
-    handleSdkInit({ FB, scope }) {
-     
-      this.FB = FB
-      this.scope = scope
+    handleSdkInit(data) { 
+     console.log(data,"dats");
+    },
+    Inisial(data){
+      console.log(data,"dats");
+
     },
     ceklogin(data){
-      console.log(data,"dataslogin");
-   
-      
+      console.log(data,"dataslogin");  
     },
     cekLogout(e){
      console.log(e,"eeee");
