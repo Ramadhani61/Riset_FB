@@ -5,19 +5,19 @@
       <button v-if="scope.logout && model.connected" @click="scope.logout">
         Logout
       </button> -->
-      <!-- <facebook-login class="button" appId="687646526313011" @login="ceklogin" @logout="cekLogout"
+      <facebook-login class="button" appId="687646526313011" @login="ceklogin" @logout="cekLogout"
         @get-initial-status="ceklogin">
-      </facebook-login> -->
+      </facebook-login>
   </v-container>
 </template>
 
 <script>
-import VFacebookLogin from 'vue-facebook-login-component'
+// import VFacebookLogin from 'vue-facebook-login-component'
 import facebookLogin from 'facebook-login-vuejs';
   export default {
     name: 'HelloWorld',
     components:{
-      VFacebookLogin,
+      // VFacebookLogin,
       facebookLogin
     },
 
