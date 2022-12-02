@@ -27,6 +27,7 @@ import facebookLogin from 'facebook-login-vuejs';
       scope: {},
     }),
     mounted(){
+      this.handleSdkInit();
     
     },
   methods: {
