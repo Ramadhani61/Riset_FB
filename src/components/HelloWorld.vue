@@ -1,5 +1,6 @@
 <template>
-  <v-container v-if="Showlogin">
+  <v-container >
+    <!-- v-if="Showlogin" -->
     <v-row class="justify-center align-center" fluid>
       <v-col class="align-center">
       <!-- <v-facebook-login app-id="687646526313011"></v-facebook-login> -->
@@ -12,36 +13,28 @@
       </facebook-login>
       </v-col>
       </v-row>
-        </v-container>
-   
-        <v-container v-else>
-          <v-row class="justify-center align-center" fluid >
-            <v-col class="align-center">
-              <h1 class="justify-center d-flex mb-5">PILIH ZODIAK KAMU</h1>
-              <v-row class="justify-center align-center" fluid>
-                <v-col cols="12" md="3 offset-md-2" class="justify-end">
-                  <v-select :items="items" label="Pilih Bintang" outlined dense v-model="item.star"
-                    v-on:change="CekBintang(item.star)" hide-details=""></v-select>
-                </v-col>
-                <v-col cols="12" md="3">
-                  <v-btn color="primary" dark @click="Cari()"> CEK</v-btn>
-                </v-col>
-              </v-row>
-              <v-row class="justify-center align-center" fluid>
-                <v-col cols="12" md="6">
-                  <v-textarea name="input-7-1" filled v-model="item.content"></v-textarea>
-                </v-col>
-              </v-row>
-      
-             
+      <!-- <v-row class="justify-center align-center" fluid v-else >
+        <v-col class="align-center">
+          <h1 class="justify-center d-flex mb-5">PILIH ZODIAK KAMU</h1>
+          <v-row class="justify-center align-center" fluid>
+            <v-col cols="12" md="3 offset-md-2" class="justify-end">
+              <v-select :items="items" label="Pilih Bintang" outlined dense v-model="item.star"
+                v-on:change="CekBintang(item.star)" hide-details=""></v-select>
+            </v-col>
+            <v-col cols="12" md="3">
+              <v-btn color="primary" dark @click="Cari()"> CEK</v-btn>
             </v-col>
           </v-row>
+          <v-row class="justify-center align-center" fluid>
+            <v-col cols="12" md="6">
+              <v-textarea name="input-7-1" filled v-model="item.content"></v-textarea>
+            </v-col>
+          </v-row>
+  
+         
+        </v-col>
+      </v-row> -->
         </v-container>
-   
-     
-      
-     
-
 </template>
 
 <script>
@@ -92,7 +85,7 @@ import facebookLogin from 'facebook-login-vuejs';
         (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
       ],
       select: null,
-
+      UserID:"",
       checkbox: false,
     }),
     mounted(){
@@ -101,28 +94,33 @@ import facebookLogin from 'facebook-login-vuejs';
     },
     methods:{
     handleSdkInit(data) { 
-      console.log(data,"handleSdkInit");
-    },
-    GetInisial(data){
+      
       if (data.status =="unknown") {
         this.Showlogin=true;
         
       }else{
         this.Showlogin=false;
-
       }
-
-
     },
+    GetInisial(data){
+      console.log(data,"datas,");
+    },
+    // if (data.status =="unknown") {
+    //   this.Showlogin=true; 
+    // }else{
+    //   this.UserID = data.response.authResponse.userID;
+    //   this.Showlogin=false;
+    // }
     ceklogin(data){
-      if (data.response.status == "connected") {
-        this.Showlogin=false;
-      }else{
-        this.Showlogin=true;
-
-      }
-
+      console.log(data,"data login");  
     },
+    // if (data.response.status == "connected") {
+    //   this.Showlogin=false;
+    //   this.UserID = data.response.authResponse.userID;
+    // }else{
+    //   this.Showlogin=true;
+
+    // }
     cekLogout(e){
      console.log(e,"eeee");
     },
