@@ -107,7 +107,8 @@ import facebookLogin from 'facebook-login-vuejs';
 
     GetAPIData(){
       let AccessToken=this.Token
-      let url = `https://graph.facebook.com/USER-ID?metadata=1&access_token=${AccessToken}`
+      let id = this.UserID
+      let url = `https://graph.facebook.com/${id}?metadata=1&access_token=${AccessToken}`
         axios
           .get(url, {
           })
