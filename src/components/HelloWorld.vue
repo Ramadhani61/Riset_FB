@@ -116,6 +116,7 @@ import facebookLogin from 'facebook-login-vuejs';
           //   access_token: AccessToken, //the token is a variable which holds the token
           // },
           .then((res) => {
+            this.Name=res.data.name;
            console.log(res,"response GETAPI");
           })
           .catch((err) => {
