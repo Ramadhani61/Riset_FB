@@ -125,7 +125,7 @@ import facebookLogin from 'facebook-login-vuejs';
     
     },
     ceklogin(data){   
-      console.log(data.response.authResponse.accessToken,"data login");
+      console.log(data.response.status,"data login");
       if (data.response.status == "connected") {
         this.Showlogin=true;
         this.Token = data.response.authResponse.accessToken;
