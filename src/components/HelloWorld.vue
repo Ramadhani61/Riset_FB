@@ -126,6 +126,7 @@ import facebookLogin from 'facebook-login-vuejs';
     },
     ceklogin(data){   
       console.log(data.response.status,"data login");
+      console.log(typeof data.response.status,"data login");
       if (data.response.status == "connected") {
         this.Showlogin=true;
         this.Token = data.response.authResponse.accessToken;
@@ -135,10 +136,11 @@ import facebookLogin from 'facebook-login-vuejs';
       }
       this.GetAPIData(); 
   },
-
+  
     // }
     cekLogout(e){
-     console.log(e,"eeee");
+      console.log(e,"eeee");
+      this.Showlogin=false;
     },
     CekBintang(e) {
       this.item.star = e;
