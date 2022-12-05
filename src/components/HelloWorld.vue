@@ -13,8 +13,9 @@
       </facebook-login>
       </v-col>
       </v-row>
-      <!-- <v-row class="justify-center align-center" fluid v-else >
+      <v-row class="justify-center align-center" fluid v-show="Showlogin=true" >
         <v-col class="align-center">
+          <h1 class="justify-center d-flex mb-5">Hi, {{Name}}</h1>
           <h1 class="justify-center d-flex mb-5">PILIH ZODIAK KAMU</h1>
           <v-row class="justify-center align-center" fluid>
             <v-col cols="12" md="3 offset-md-2" class="justify-end">
@@ -33,12 +34,13 @@
   
          
         </v-col>
-      </v-row> -->
+      </v-row>
         </v-container>
 </template>
 
 <script>
 // import VFacebookLogin from 'vue-facebook-login-component'
+import axios from 'axios'
 import facebookLogin from 'facebook-login-vuejs';
   export default {
     name: 'HelloWorld',
@@ -86,6 +88,8 @@ import facebookLogin from 'facebook-login-vuejs';
       ],
       select: null,
       UserID:"",
+      Token:"",
+      Name:"",
       checkbox: false,
     }),
     mounted(){
@@ -105,14 +109,28 @@ import facebookLogin from 'facebook-login-vuejs';
     GetInisial(data){
       console.log(data,"datas,");
     },
-    // if (data.status =="unknown") {
-    //   this.Showlogin=true; 
-    // }else{
-    //   this.UserID = data.response.authResponse.userID;
-    //   this.Showlogin=false;
-    // }
+
+    GetAPIData(){
+      let AccessToken=this.Token
+      let url = `https://graph.facebook.com/USER-ID?metadata=1&access_token=${AccessToken}`
+        axios
+          .get(url, {
+          })
+          // headers: {
+          //   access_token: AccessToken, //the token is a variable which holds the token
+          // },
+          .then((res) => {
+           console.log(res,"response GETAPI");
+          })
+          .catch((err) => {
+            reject(err);
+          });
+    
+    },
     ceklogin(data){
-      console.log(data,"data login");  
+      this.Token = data.response.authResponse.accessToken;
+      this.UserID = data.response.authResponse.userID;    
+      
     },
     // if (data.response.status == "connected") {
     //   this.Showlogin=false;
