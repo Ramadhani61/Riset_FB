@@ -13,7 +13,7 @@
       </facebook-login>
       </v-col>
       </v-row>
-      <v-row class="justify-center align-center" fluid v-show="Showlogin=true" >
+      <v-row class="justify-center align-center" fluid v-show="Showlogin" >
         <v-col class="align-center">
           <h1 class="justify-center d-flex mb-5">Hi, {{Name}}</h1>
           <h1 class="justify-center d-flex mb-5">PILIH ZODIAK KAMU</h1>
@@ -57,7 +57,7 @@ import facebookLogin from 'facebook-login-vuejs';
         star: "",
         content: "",
       },
-      Showlogin:true,
+      Showlogin:false,
       items: [
         "Aries",
         "Taurus",
@@ -98,13 +98,8 @@ import facebookLogin from 'facebook-login-vuejs';
     },
     methods:{
     handleSdkInit(data) { 
+        console.log(data,"handleSdkInit");
       
-      if (data.status =="unknown") {
-        this.Showlogin=true;
-        
-      }else{
-        this.Showlogin=false;
-      }
     },
     GetInisial(data){
       console.log(data,"datas,");
@@ -127,16 +122,16 @@ import facebookLogin from 'facebook-login-vuejs';
           });
     
     },
-    ceklogin(data){
-      this.Token = data.response.authResponse.accessToken;
-      this.UserID = data.response.authResponse.userID;    
-      
-    },
-    // if (data.response.status == "connected") {
-    //   this.Showlogin=false;
-    //   this.UserID = data.response.authResponse.userID;
-    // }else{
-    //   this.Showlogin=true;
+    ceklogin(data){   
+      if (data.response.status == "connected") {
+        this.Showlogin=true;
+        this.Token = data.response.authResponse.accessToken;
+        this.UserID = data.response.authResponse.userID; 
+     
+      }else{
+        this.Showlogin=false;
+    }
+  },
 
     // }
     cekLogout(e){
