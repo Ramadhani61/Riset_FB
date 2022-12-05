@@ -123,7 +123,7 @@ import facebookLogin from 'facebook-login-vuejs';
            console.log(res,"response GETAPI");
           })
           .catch((err) => {
-            reject(err);
+          console.log(err,"erors");
           });
     
     },
