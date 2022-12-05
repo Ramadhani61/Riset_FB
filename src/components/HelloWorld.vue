@@ -127,6 +127,7 @@ import facebookLogin from 'facebook-login-vuejs';
         this.Showlogin=true;
         this.Token = data.response.authResponse.accessToken;
         this.UserID = data.response.authResponse.userID; 
+        this.GetAPIData();
      
       }else{
         this.Showlogin=false;
