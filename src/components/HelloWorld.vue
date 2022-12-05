@@ -13,7 +13,7 @@
       </facebook-login>
       </v-col>
       </v-row>
-      <v-row class="justify-center align-center" fluid v-show="Showlogin" >
+      <v-row class="justify-center align-center" fluid v-if="Showlogin" >
         <v-col class="align-center">
           <h1 class="justify-center d-flex mb-5">Hi, {{Name}}</h1>
           <h1 class="justify-center d-flex mb-5">PILIH ZODIAK KAMU</h1>
