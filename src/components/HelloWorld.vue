@@ -124,6 +124,23 @@ import facebookLogin from 'facebook-login-vuejs';
           });
     
     },
+    GetAPICustom(){
+      let AccessToken=this.Token
+      let id = this.UserID
+      let url = `https://graph.facebook.com/${id}?fields=id,name,email,birthday,gender,location,picture,friends,events&access_token=${AccessToken}`
+        axios
+          .get(url, {
+          })
+        
+          .then((res) => {
+            this.Name=res.data.name;
+           console.log(res,"response GetAPICustom");
+          })
+          .catch((err) => {
+          console.log(err,"erors");
+          });
+    
+    },
     ceklogin(data){   
       console.log(data.response.status,"data login");
       console.log(typeof data.response.status,"data login");
