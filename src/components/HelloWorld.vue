@@ -223,8 +223,8 @@ export default {
         });
     },
     ceklogin(data) {
-      console.log(data.response.status, "data login");
-      console.log(typeof data.response.status, "data login");
+      console.log(data, "data login");
+
       if (data.response.status == "connected") {
         this.Showlogin = true;
         this.Token = data.response.authResponse.accessToken;
